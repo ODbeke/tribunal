@@ -28,7 +28,7 @@ export default function RootLayout({
       lang="en"
       className={`${syne.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#07080a] text-[#f3f4f6]">
+      <body className="min-h-full flex flex-col text-[#f3f4f6]">
         {children}
       </body>
     </html>
