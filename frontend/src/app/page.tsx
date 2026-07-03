@@ -147,7 +147,7 @@ function PageContent() {
         toasts.updateToast(toastId, {
           kind: 'success',
           title: 'Escrow Completed',
-          message: '100% of funds have been transferred to the provider.',
+          message: 'Escrow payout initiated. Fund delivery to the provider completes upon finalization (~30 min).',
           hash: escrowActionsTxState.state.hash ?? undefined,
         });
         wallet.updateBalance();
@@ -227,7 +227,7 @@ function PageContent() {
         toasts.updateToast(toastId, {
           kind: 'success',
           title: 'Court Verdict Finalized',
-          message: `Escrow has been split and distributed based on verdict: ${draft?.verdict}.`,
+          message: `Escrow split initiated based on verdict: ${draft?.verdict}. Fund delivery completes upon finalization (~30 min).`,
           hash: escrowActionsTxState.state.hash ?? undefined,
         });
         wallet.updateBalance();

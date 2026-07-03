@@ -235,6 +235,14 @@ export function CourtChamber({
             </span>
           </div>
         )}
+
+        {/* Async finalization note for completed/refunded/split escrows */}
+        {(escrow.status === 'COMPLETED' || escrow.status === 'REFUNDED' || escrow.status === 'SPLIT') && (
+          <div className="mt-3 pt-3 border-t border-slate-800/80 text-[10px] text-amber-500/90 leading-relaxed flex items-start gap-2">
+            <span className="flex-shrink-0 mt-0.5">⚠️</span>
+            <span>Fund delivery to recipient wallets occurs asynchronously and completes once GenLayer validators reach consensus finalization (~30 min).</span>
+          </div>
+        )}
       </div>
 
       {/* Case Resolution Output Panel */}
