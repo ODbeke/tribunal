@@ -114,9 +114,8 @@ export function CourtChamber({
         </div>
       </div>
 
-      {/* Grid: Details on Left, Visual Scales on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-        <div className="lg:col-span-3 space-y-4 text-xs font-mono">
+      {/* Case Details */}
+      <div className="space-y-4 text-xs font-mono">
           {/* Metadata Cards */}
           <div className="grid grid-cols-2 gap-3 text-[10px]">
             <div className="bg-[#07080a] border border-slate-800 p-2.5 rounded">
@@ -178,21 +177,20 @@ export function CourtChamber({
               </div>
             </div>
           )}
-        </div>
+      </div>
 
-        {/* Visual Scales Area */}
-        <div className="court-panel bg-[#07080a]/65 p-4 rounded-lg flex flex-col justify-between items-stretch court-border lg:col-span-2">
-          <span className="text-[9px] font-mono text-slate-500 font-bold uppercase tracking-widest self-start">
-            Judicial Alignment
-          </span>
-          <CourtScale
-            status={escrow.status}
-            verdict={escrow.resolution.verdict}
-            providerPercent={escrow.resolution.provider_percent}
-            isProcessing={isTxProcessing}
-            className="w-full"
-          />
-        </div>
+      {/* Judicial Alignment - Full Width */}
+      <div className="court-panel bg-[#07080a]/65 p-5 rounded-lg court-border">
+        <span className="text-[9px] font-mono text-slate-500 font-bold uppercase tracking-widest block mb-2">
+          Judicial Alignment
+        </span>
+        <CourtScale
+          status={escrow.status}
+          verdict={escrow.resolution.verdict}
+          providerPercent={escrow.resolution.provider_percent}
+          isProcessing={isTxProcessing}
+          className="w-full max-w-md mx-auto"
+        />
       </div>
 
       {/* Case Resolution Output Panel */}
