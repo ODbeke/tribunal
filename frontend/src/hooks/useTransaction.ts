@@ -88,8 +88,19 @@ export function useTransaction(): UseTransactionHook {
       });
 
       if (status === 'ACCEPTED' || status === 'FINALIZED') {
-        setState((prev) => ({ ...prev, phase: 'confirmed', liveStatus: status, draft }));
-        opts.onConfirmed?.(status, draft);
+        const tx = await client.getTransaction({ hash } as Parameters<typeof client.getTransaction>[0]).catch(() => null);
+        const execResult = tx ? (tx as { txExecutionResult?: unknown }).txExecutionResult : 1;
+        if (Number(execResult) === 2) {
+          setState((prev) => ({
+            ...prev,
+            phase: 'error',
+            liveStatus: status,
+            error: 'The transaction was processed but reverted on-chain. Check that inputs are valid (e.g. Provider and Client addresses must be different).',
+          }));
+        } else {
+          setState((prev) => ({ ...prev, phase: 'confirmed', liveStatus: status, draft }));
+          opts.onConfirmed?.(status, draft);
+        }
       } else if (status === 'UNDETERMINED') {
         setState((prev) => ({
           ...prev,
