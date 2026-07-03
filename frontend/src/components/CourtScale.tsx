@@ -144,32 +144,32 @@ export function CourtScale({
         </motion.g>
       </svg>
 
-      {/* Bulletproof HTML Labels precisely positioned relative to scale plates */}
-      <div className="relative w-full h-12 mt-4 font-mono select-none">
-        {/* Refund */}
-        <div className="absolute text-center" style={{ left: '18%', transform: 'translateX(-50%)' }}>
-          <span className="block font-bold text-slate-200 text-xs">
+      {/* Scale verdict labels */}
+      <div className="flex justify-between items-start w-full mt-3 font-mono select-none px-1 gap-2">
+        {/* Refund (Left) */}
+        <div className="text-center min-w-0">
+          <span className="block font-bold text-slate-200 text-sm leading-tight">
             {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '0%' : status === 'REFUNDED' || verdict === 'REFUND' ? '100%' : `${100 - providerPercent}%`}
           </span>
-          <span className="text-[10px] text-slate-500 block uppercase tracking-wider">Refund</span>
+          <span className="text-[9px] text-slate-500 block uppercase tracking-widest mt-0.5">Refund</span>
         </div>
 
-        {/* Status */}
-        <div className="absolute text-center" style={{ left: '50%', transform: 'translateX(-50%)' }}>
-          <span className="text-[14px] block leading-none mb-0.5">
+        {/* Status (Center) */}
+        <div className="text-center min-w-0">
+          <span className="text-base block leading-none">
             {isProcessing ? '⏳' : status === 'DISPUTED' ? '⚖️' : '📜'}
           </span>
-          <span className="text-[#F59E0B] font-bold text-[9px] uppercase tracking-wider block whitespace-nowrap">
+          <span className="text-amber-500 font-bold text-[9px] uppercase tracking-widest block mt-1 whitespace-nowrap">
             {isProcessing ? 'Deliberating' : status === 'DISPUTED' ? 'Active' : 'Ruled'}
           </span>
         </div>
 
-        {/* Payout */}
-        <div className="absolute text-center" style={{ left: '82%', transform: 'translateX(-50%)' }}>
-          <span className="block font-bold text-slate-200 text-xs">
+        {/* Payout (Right) */}
+        <div className="text-center min-w-0">
+          <span className="block font-bold text-slate-200 text-sm leading-tight">
             {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '100%' : status === 'REFUNDED' || verdict === 'REFUND' ? '0%' : `${providerPercent}%`}
           </span>
-          <span className="text-[10px] text-slate-500 block uppercase tracking-wider">Payout</span>
+          <span className="text-[9px] text-slate-500 block uppercase tracking-widest mt-0.5">Payout</span>
         </div>
       </div>
     </div>
