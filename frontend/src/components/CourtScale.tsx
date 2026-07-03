@@ -50,7 +50,7 @@ export function CourtScale({
   const deltaY = Math.sin(angleRad) * halfLength;
 
   return (
-    <div className={`flex flex-col items-center justify-center p-6 ${className}`}>
+    <div className={`flex flex-col items-center justify-center px-0 py-4 w-full ${className}`}>
       <svg
         viewBox="0 0 100 80"
         className="w-full max-w-[280px] h-auto drop-shadow-[0_0_15px_rgba(245,158,11,0.08)]"
@@ -151,21 +151,21 @@ export function CourtScale({
           </text>
         </motion.g>
       </svg>
-      <div className="mt-4 flex gap-8 text-[10px] font-mono text-slate-400">
-        <div className="text-center">
+      <div className="mt-4 w-full flex justify-between items-center text-[10px] font-mono text-slate-400 px-2 gap-1">
+        <div className="text-center w-16 flex-shrink-0">
           <span className="block font-bold text-slate-200">
             {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '0%' : status === 'REFUNDED' || verdict === 'REFUND' ? '100%' : `${100 - providerPercent}%`}
           </span>
-          <span>Refund</span>
+          <span className="text-[9px] text-slate-500 block">Refund</span>
         </div>
-        <div className="text-center text-amber-500 font-bold text-xs self-center">
-          {isProcessing ? 'Consensus Deliberating...' : status === 'DISPUTED' ? '⚖️ Dispute Active' : '📜 Ruled'}
+        <div className="text-center text-amber-500 font-bold text-[9px] leading-tight flex-1">
+          {isProcessing ? 'Deliberating...' : status === 'DISPUTED' ? '⚖️ Active' : '📜 Ruled'}
         </div>
-        <div className="text-center">
+        <div className="text-center w-16 flex-shrink-0">
           <span className="block font-bold text-slate-200">
             {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '100%' : status === 'REFUNDED' || verdict === 'REFUND' ? '0%' : `${providerPercent}%`}
           </span>
-          <span>Payout</span>
+          <span className="text-[9px] text-slate-500 block">Payout</span>
         </div>
       </div>
     </div>
