@@ -1,0 +1,32 @@
+# dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# testing and coverage
+/coverage
+.pytest_cache/
+__pycache__/
+*.pyc
+
+# next.js build outputs
+.next/
+out/
+build/
+
+# environmental keys
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE and OS files
+.DS_Store
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
