@@ -122,10 +122,6 @@ export function CourtScale({
             stroke={verdict === 'REFUND' || status === 'REFUNDED' ? 'var(--crimson)' : 'var(--amber)'}
             strokeWidth="0.8"
           />
-          {/* Weight markers or titles */}
-          <text x={pivotX - halfLength} y={pivotY + 29} textAnchor="middle" fontSize="3.8" fill="var(--foreground)" fontFamily="var(--font-mono)">
-            CLIENT
-          </text>
         </motion.g>
 
         {/* Right Hanging Scale Plate (Provider) */}
@@ -145,80 +141,37 @@ export function CourtScale({
             stroke={verdict === 'PAYOUT' || status === 'COMPLETED' ? 'var(--emerald)' : 'var(--amber)'}
             strokeWidth="0.8"
           />
-          {/* Weight markers or titles */}
-          <text x={pivotX + halfLength} y={pivotY + 29} textAnchor="middle" fontSize="3.8" fill="var(--foreground)" fontFamily="var(--font-mono)">
-            PROVIDER
-          </text>
         </motion.g>
-        {/* Left Side Labels (Client Refund) */}
-        <text
-          x={pivotX - halfLength}
-          y={pivotY + 36}
-          textAnchor="middle"
-          fontSize="5.2"
-          fontWeight="bold"
-          fill="#E2E8F0"
-          fontFamily="var(--font-mono)"
-        >
-          {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '0%' : status === 'REFUNDED' || verdict === 'REFUND' ? '100%' : `${100 - providerPercent}%`}
-        </text>
-        <text
-          x={pivotX - halfLength}
-          y={pivotY + 41.5}
-          textAnchor="middle"
-          fontSize="3.6"
-          fill="#64748B"
-          fontFamily="var(--font-mono)"
-        >
-          Refund
-        </text>
-
-        {/* Center Side Labels (Status) */}
-        <text
-          x={pivotX}
-          y={pivotY + 35.5}
-          textAnchor="middle"
-          fontSize="7.0"
-          fill="#F59E0B"
-          fontFamily="var(--font-mono)"
-        >
-          {isProcessing ? '⏳' : status === 'DISPUTED' ? '⚖️' : '📜'}
-        </text>
-        <text
-          x={pivotX}
-          y={pivotY + 41.5}
-          textAnchor="middle"
-          fontSize="3.8"
-          fontWeight="bold"
-          fill="#F59E0B"
-          fontFamily="var(--font-mono)"
-        >
-          {isProcessing ? 'Deliberating' : status === 'DISPUTED' ? 'Active' : 'Ruled'}
-        </text>
-
-        {/* Right Side Labels (Provider Payout) */}
-        <text
-          x={pivotX + halfLength}
-          y={pivotY + 36}
-          textAnchor="middle"
-          fontSize="5.2"
-          fontWeight="bold"
-          fill="#E2E8F0"
-          fontFamily="var(--font-mono)"
-        >
-          {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '100%' : status === 'REFUNDED' || verdict === 'REFUND' ? '0%' : `${providerPercent}%`}
-        </text>
-        <text
-          x={pivotX + halfLength}
-          y={pivotY + 41.5}
-          textAnchor="middle"
-          fontSize="3.6"
-          fill="#64748B"
-          fontFamily="var(--font-mono)"
-        >
-          Payout
-        </text>
       </svg>
+
+      {/* Bulletproof HTML Labels precisely positioned relative to scale plates */}
+      <div className="relative w-full h-12 mt-4 font-mono select-none">
+        {/* Refund */}
+        <div className="absolute text-center" style={{ left: '18%', transform: 'translateX(-50%)' }}>
+          <span className="block font-bold text-slate-200 text-xs">
+            {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '0%' : status === 'REFUNDED' || verdict === 'REFUND' ? '100%' : `${100 - providerPercent}%`}
+          </span>
+          <span className="text-[10px] text-slate-500 block uppercase tracking-wider">Refund</span>
+        </div>
+
+        {/* Status */}
+        <div className="absolute text-center" style={{ left: '50%', transform: 'translateX(-50%)' }}>
+          <span className="text-[14px] block leading-none mb-0.5">
+            {isProcessing ? '⏳' : status === 'DISPUTED' ? '⚖️' : '📜'}
+          </span>
+          <span className="text-[#F59E0B] font-bold text-[9px] uppercase tracking-wider block whitespace-nowrap">
+            {isProcessing ? 'Deliberating' : status === 'DISPUTED' ? 'Active' : 'Ruled'}
+          </span>
+        </div>
+
+        {/* Payout */}
+        <div className="absolute text-center" style={{ left: '82%', transform: 'translateX(-50%)' }}>
+          <span className="block font-bold text-slate-200 text-xs">
+            {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '100%' : status === 'REFUNDED' || verdict === 'REFUND' ? '0%' : `${providerPercent}%`}
+          </span>
+          <span className="text-[10px] text-slate-500 block uppercase tracking-wider">Payout</span>
+        </div>
+      </div>
     </div>
   );
 }
