@@ -16,22 +16,13 @@ export function Header({ wallet, stats, onCreateClick }: HeaderProps) {
     <header className="court-border border-b bg-[#090a0d]/90 backdrop-blur-md sticky top-0 z-30 px-6 py-4">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         {/* Logo and Brand */}
-        <div className="flex items-center gap-3">
-          <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-lg text-amber-500 amber-glow-box">
-            <svg className="w-6 h-6 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M8 11h8" />
-              <path d="M12 9v4" />
-            </svg>
-          </div>
-          <div>
-            <h1 className="font-display font-bold text-lg tracking-wide flex items-center gap-2">
-              TRIBUNAL
-            </h1>
-            <p className="text-[10px] font-mono tracking-widest text-slate-500 uppercase">
-              Decentralized AI Escrow Court
-            </p>
-          </div>
+        <div className="flex flex-col">
+          <h1 className="font-display font-bold text-lg tracking-wide">
+            TRIBUNAL
+          </h1>
+          <p className="text-[10px] font-mono tracking-widest text-slate-500 uppercase mt-0.5">
+            Decentralized AI Escrow Court
+          </p>
         </div>
 
         {/* Global Statistics Counters */}
