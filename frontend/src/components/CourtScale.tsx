@@ -150,24 +150,75 @@ export function CourtScale({
             PROVIDER
           </text>
         </motion.g>
+        {/* Left Side Labels (Client Refund) */}
+        <text
+          x={pivotX - halfLength}
+          y={pivotY + 36}
+          textAnchor="middle"
+          fontSize="3.4"
+          fontWeight="bold"
+          fill="#E2E8F0"
+          fontFamily="var(--font-mono)"
+        >
+          {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '0%' : status === 'REFUNDED' || verdict === 'REFUND' ? '100%' : `${100 - providerPercent}%`}
+        </text>
+        <text
+          x={pivotX - halfLength}
+          y={pivotY + 41}
+          textAnchor="middle"
+          fontSize="2.4"
+          fill="#64748B"
+          fontFamily="var(--font-mono)"
+        >
+          Refund
+        </text>
+
+        {/* Center Side Labels (Status) */}
+        <text
+          x={pivotX}
+          y={pivotY + 36}
+          textAnchor="middle"
+          fontSize="4.5"
+          fill="#F59E0B"
+          fontFamily="var(--font-mono)"
+        >
+          {isProcessing ? '⏳' : status === 'DISPUTED' ? '⚖️' : '📜'}
+        </text>
+        <text
+          x={pivotX}
+          y={pivotY + 41}
+          textAnchor="middle"
+          fontSize="2.6"
+          fontWeight="bold"
+          fill="#F59E0B"
+          fontFamily="var(--font-mono)"
+        >
+          {isProcessing ? 'Deliberating' : status === 'DISPUTED' ? 'Active' : 'Ruled'}
+        </text>
+
+        {/* Right Side Labels (Provider Payout) */}
+        <text
+          x={pivotX + halfLength}
+          y={pivotY + 36}
+          textAnchor="middle"
+          fontSize="3.4"
+          fontWeight="bold"
+          fill="#E2E8F0"
+          fontFamily="var(--font-mono)"
+        >
+          {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '100%' : status === 'REFUNDED' || verdict === 'REFUND' ? '0%' : `${providerPercent}%`}
+        </text>
+        <text
+          x={pivotX + halfLength}
+          y={pivotY + 41}
+          textAnchor="middle"
+          fontSize="2.4"
+          fill="#64748B"
+          fontFamily="var(--font-mono)"
+        >
+          Payout
+        </text>
       </svg>
-      <div className="mt-4 w-full flex justify-between items-center text-[10px] font-mono text-slate-400 px-2 gap-1">
-        <div className="text-center w-16 flex-shrink-0">
-          <span className="block font-bold text-slate-200">
-            {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '0%' : status === 'REFUNDED' || verdict === 'REFUND' ? '100%' : `${100 - providerPercent}%`}
-          </span>
-          <span className="text-[9px] text-slate-500 block">Refund</span>
-        </div>
-        <div className="text-center text-amber-500 font-bold text-[9px] leading-tight flex-1">
-          {isProcessing ? 'Deliberating...' : status === 'DISPUTED' ? '⚖️ Active' : '📜 Ruled'}
-        </div>
-        <div className="text-center w-16 flex-shrink-0">
-          <span className="block font-bold text-slate-200">
-            {isProcessing ? '??' : status === 'COMPLETED' || verdict === 'PAYOUT' ? '100%' : status === 'REFUNDED' || verdict === 'REFUND' ? '0%' : `${providerPercent}%`}
-          </span>
-          <span className="text-[9px] text-slate-500 block">Payout</span>
-        </div>
-      </div>
     </div>
   );
 }
