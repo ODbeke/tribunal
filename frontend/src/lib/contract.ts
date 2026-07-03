@@ -4,7 +4,7 @@ import { testnetBradbury } from 'genlayer-js/chains';
 // Tribunal Smart Contract Address on GenLayer Bradbury Testnet.
 // This will be replaced with the user's deployed contract address.
 export const CONTRACT_ADDRESS =
-  '0x0000000000000000000000000000000000000000' as const;
+  '0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0' as const;
 
 export const EXPLORER = 'https://explorer-bradbury.genlayer.com';
 export const FAUCET = 'https://testnet-faucet.genlayer.foundation/';
