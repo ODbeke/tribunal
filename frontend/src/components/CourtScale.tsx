@@ -50,10 +50,10 @@ export function CourtScale({
   const deltaY = Math.sin(angleRad) * halfLength;
 
   return (
-    <div className={`flex flex-col items-center justify-center px-0 py-4 w-full ${className}`}>
+    <div className={`flex flex-col items-stretch justify-center px-0 py-4 w-full ${className}`}>
       <svg
         viewBox="0 0 100 80"
-        className="w-full max-w-[280px] h-auto drop-shadow-[0_0_15px_rgba(245,158,11,0.08)]"
+        className="w-full max-w-[280px] h-auto mx-auto drop-shadow-[0_0_15px_rgba(245,158,11,0.08)]"
         aria-label="Court Scales of Justice"
       >
         {/* Core stand (Judicial Pillar) */}

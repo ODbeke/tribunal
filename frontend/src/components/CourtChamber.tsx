@@ -181,7 +181,7 @@ export function CourtChamber({
         </div>
 
         {/* Visual Scales Area */}
-        <div className="court-panel bg-[#07080a]/65 p-4 rounded-lg flex flex-col justify-between items-center court-border">
+        <div className="court-panel bg-[#07080a]/65 p-4 rounded-lg flex flex-col justify-between items-stretch court-border">
           <span className="text-[9px] font-mono text-slate-500 font-bold uppercase tracking-widest self-start">
             Judicial Alignment
           </span>
