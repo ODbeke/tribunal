@@ -123,7 +123,7 @@ export function CourtScale({
             strokeWidth="0.8"
           />
           {/* Weight markers or titles */}
-          <text x={pivotX - halfLength} y={pivotY + 29} textAnchor="middle" fontSize="2.8" fill="var(--foreground)" fontFamily="var(--font-mono)">
+          <text x={pivotX - halfLength} y={pivotY + 29} textAnchor="middle" fontSize="3.8" fill="var(--foreground)" fontFamily="var(--font-mono)">
             CLIENT
           </text>
         </motion.g>
@@ -146,7 +146,7 @@ export function CourtScale({
             strokeWidth="0.8"
           />
           {/* Weight markers or titles */}
-          <text x={pivotX + halfLength} y={pivotY + 29} textAnchor="middle" fontSize="2.8" fill="var(--foreground)" fontFamily="var(--font-mono)">
+          <text x={pivotX + halfLength} y={pivotY + 29} textAnchor="middle" fontSize="3.8" fill="var(--foreground)" fontFamily="var(--font-mono)">
             PROVIDER
           </text>
         </motion.g>
@@ -155,7 +155,7 @@ export function CourtScale({
           x={pivotX - halfLength}
           y={pivotY + 36}
           textAnchor="middle"
-          fontSize="3.4"
+          fontSize="5.2"
           fontWeight="bold"
           fill="#E2E8F0"
           fontFamily="var(--font-mono)"
@@ -164,9 +164,9 @@ export function CourtScale({
         </text>
         <text
           x={pivotX - halfLength}
-          y={pivotY + 41}
+          y={pivotY + 41.5}
           textAnchor="middle"
-          fontSize="2.4"
+          fontSize="3.6"
           fill="#64748B"
           fontFamily="var(--font-mono)"
         >
@@ -176,9 +176,9 @@ export function CourtScale({
         {/* Center Side Labels (Status) */}
         <text
           x={pivotX}
-          y={pivotY + 36}
+          y={pivotY + 35.5}
           textAnchor="middle"
-          fontSize="4.5"
+          fontSize="7.0"
           fill="#F59E0B"
           fontFamily="var(--font-mono)"
         >
@@ -186,9 +186,9 @@ export function CourtScale({
         </text>
         <text
           x={pivotX}
-          y={pivotY + 41}
+          y={pivotY + 41.5}
           textAnchor="middle"
-          fontSize="2.6"
+          fontSize="3.8"
           fontWeight="bold"
           fill="#F59E0B"
           fontFamily="var(--font-mono)"
@@ -201,7 +201,7 @@ export function CourtScale({
           x={pivotX + halfLength}
           y={pivotY + 36}
           textAnchor="middle"
-          fontSize="3.4"
+          fontSize="5.2"
           fontWeight="bold"
           fill="#E2E8F0"
           fontFamily="var(--font-mono)"
@@ -210,9 +210,9 @@ export function CourtScale({
         </text>
         <text
           x={pivotX + halfLength}
-          y={pivotY + 41}
+          y={pivotY + 41.5}
           textAnchor="middle"
-          fontSize="2.4"
+          fontSize="3.6"
           fill="#64748B"
           fontFamily="var(--font-mono)"
         >
