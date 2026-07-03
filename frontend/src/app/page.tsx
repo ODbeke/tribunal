@@ -10,7 +10,7 @@ import { EscrowBoard } from '@/components/EscrowBoard';
 import { CourtChamber } from '@/components/CourtChamber';
 import { CreateEscrowModal } from '@/components/CreateEscrowModal';
 import { ToastProvider, useToast } from '@/components/Toast';
-import { Shield, Sparkles, Scale, Info, ExternalLink } from 'lucide-react';
+import { Shield, Cpu, Scale, Info, ExternalLink } from 'lucide-react';
 
 function PageContent() {
   const wallet = useWallet();
@@ -273,7 +273,7 @@ function PageContent() {
           <section className="court-panel p-6 rounded-lg bg-[#0d0f13] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 scanline-overlay">
             <div className="space-y-1 max-w-lg">
               <div className="flex items-center gap-2 text-amber-500">
-                <Sparkles className="w-4 h-4" />
+                <Cpu className="w-3.5 h-3.5" />
                 <span className="text-[10px] font-mono font-bold tracking-widest uppercase">
                   Validator Consensus Arbitrator
                 </span>

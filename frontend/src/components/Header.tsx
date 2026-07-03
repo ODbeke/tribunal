@@ -1,6 +1,6 @@
 'use client';
 
-import { Gavel, Power, Wallet } from 'lucide-react';
+import { Power, Wallet } from 'lucide-react';
 import { WalletHook } from '@/hooks/useWallet';
 import { CourtStats } from '@/lib/contract';
 import { shortAddress } from '@/lib/format';
@@ -18,7 +18,11 @@ export function Header({ wallet, stats, onCreateClick }: HeaderProps) {
         {/* Logo and Brand */}
         <div className="flex items-center gap-3">
           <div className="p-2.5 bg-amber-500/10 border border-amber-500/30 rounded-lg text-amber-500 amber-glow-box">
-            <Gavel className="w-6 h-6" />
+            <svg className="w-6 h-6 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              <path d="M8 11h8" />
+              <path d="M12 9v4" />
+            </svg>
           </div>
           <div>
             <h1 className="font-display font-bold text-lg tracking-wide flex items-center gap-2">
