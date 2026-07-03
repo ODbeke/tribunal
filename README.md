@@ -99,7 +99,7 @@ Most GenLayer equivalence checks compare only the numerical output or the catego
 Verify contract code format and constraints using the GenVM SDK:
 ```bash
 # Lint check the contract
-genvm-lint check contracts/contract.py
+genvm-lint check contracts/tribunal.py
 
 # Run local integration test suite
 gltest tests/integration/ -v -s
@@ -123,6 +123,6 @@ npm run dev
 ## Deployment
 Deploy the Intelligent Contract to the GenLayer Bradbury Testnet using the CLI:
 ```bash
-genlayer deploy --contract contracts/contract.py
+genlayer deploy --contract contracts/tribunal.py
 ```
 After deployment, paste your contract address in `frontend/src/lib/contract.ts` to connect the client.
