@@ -9,9 +9,10 @@ interface CreateEscrowModalProps {
   isBusy: boolean;
   onClose: () => void;
   onSubmit: (provider: string, title: string, terms: string, amountGen: string, deadlineHours: number) => void;
+  clientAddress?: string;
 }
 
-export function CreateEscrowModal({ isOpen, isBusy, onClose, onSubmit }: CreateEscrowModalProps) {
+export function CreateEscrowModal({ isOpen, isBusy, onClose, onSubmit, clientAddress }: CreateEscrowModalProps) {
   const [provider, setProvider] = useState('');
   const [title, setTitle] = useState('');
   const [terms, setTerms] = useState('');
@@ -29,6 +30,12 @@ export function CreateEscrowModal({ isOpen, isBusy, onClose, onSubmit }: CreateE
     // Validate provider address format
     if (!/^0x[a-fA-F0-9]{40}$/.test(provider.trim())) {
       setValidationErr('Provider address must be a valid 42-character hex address starting with 0x.');
+      return;
+    }
+
+    // Validate provider is not client
+    if (clientAddress && provider.trim().toLowerCase() === clientAddress.toLowerCase()) {
+      setValidationErr('Provider address cannot be the same as your connected wallet address. Please use a different address to act as the provider.');
       return;
     }
 
@@ -92,6 +99,11 @@ export function CreateEscrowModal({ isOpen, isBusy, onClose, onSubmit }: CreateE
               placeholder="0x..."
               className="w-full bg-[#07080a] border border-slate-800 focus:border-amber-500/50 rounded p-2.5 outline-none text-slate-300"
             />
+            {clientAddress && provider.trim().toLowerCase() === clientAddress.toLowerCase() && (
+              <span className="text-[10px] text-red-400 block mt-1 tracking-wide">
+                ⚠️ Provider cannot be the same as your connected client address.
+              </span>
+            )}
           </div>
 
           <div>

@@ -356,6 +356,7 @@ function PageContent() {
         isBusy={createBusy}
         onClose={() => setIsCreateOpen(false)}
         onSubmit={handleCreateSubmit}
+        clientAddress={wallet.account ?? undefined}
       />
     </div>
   );
