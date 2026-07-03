@@ -115,8 +115,8 @@ export function CourtChamber({
       </div>
 
       {/* Grid: Details on Left, Visual Scales on Right */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 space-y-4 text-xs font-mono">
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        <div className="lg:col-span-3 space-y-4 text-xs font-mono">
           {/* Metadata Cards */}
           <div className="grid grid-cols-2 gap-3 text-[10px]">
             <div className="bg-[#07080a] border border-slate-800 p-2.5 rounded">
@@ -181,7 +181,7 @@ export function CourtChamber({
         </div>
 
         {/* Visual Scales Area */}
-        <div className="court-panel bg-[#07080a]/65 p-4 rounded-lg flex flex-col justify-between items-stretch court-border">
+        <div className="court-panel bg-[#07080a]/65 p-4 rounded-lg flex flex-col justify-between items-stretch court-border lg:col-span-2">
           <span className="text-[9px] font-mono text-slate-500 font-bold uppercase tracking-widest self-start">
             Judicial Alignment
           </span>
