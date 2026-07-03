@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Shield, ShieldAlert, Award, FileText, Send, User, ChevronRight, HelpCircle, Loader2, Clock } from 'lucide-react';
 import { Escrow, EscrowStatus, Verdict } from '@/lib/contract';
 import { getRoleForEscrow, getVerdictStyle, shortAddress, STATUS_STYLES } from '@/lib/format';
-import { CourtScale } from './CourtScale';
+
 
 interface CourtChamberProps {
   escrow: Escrow | null;
@@ -179,18 +179,62 @@ export function CourtChamber({
           )}
       </div>
 
-      {/* Judicial Alignment - Full Width */}
-      <div className="court-panel bg-[#07080a]/65 p-5 rounded-lg court-border">
-        <span className="text-[9px] font-mono text-slate-500 font-bold uppercase tracking-widest block mb-2">
-          Judicial Alignment
+      {/* Case Status Summary */}
+      <div className="bg-[#07080a] border border-slate-800 rounded-lg p-4 font-mono text-xs">
+        <span className="text-[9px] text-slate-500 font-bold uppercase tracking-widest block mb-3">
+          Case Status
         </span>
-        <CourtScale
-          status={escrow.status}
-          verdict={escrow.resolution.verdict}
-          providerPercent={escrow.resolution.provider_percent}
-          isProcessing={isTxProcessing}
-          className="w-full max-w-md mx-auto"
-        />
+        <div className="grid grid-cols-3 gap-4">
+          {/* Status */}
+          <div className="text-center">
+            <span className="text-slate-500 text-[8px] uppercase tracking-wider block mb-1">Status</span>
+            <span className={`font-bold text-sm ${
+              escrow.status === 'ACTIVE' ? 'text-amber-400' :
+              escrow.status === 'DISPUTED' ? 'text-red-400' :
+              escrow.status === 'COMPLETED' ? 'text-emerald-400' :
+              escrow.status === 'REFUNDED' ? 'text-red-400' :
+              'text-slate-300'
+            }`}>
+              {isTxProcessing ? 'Processing...' : escrow.status}
+            </span>
+          </div>
+          {/* Client Refund */}
+          <div className="text-center">
+            <span className="text-slate-500 text-[8px] uppercase tracking-wider block mb-1">Client Refund</span>
+            <span className="font-bold text-sm text-slate-200">
+              {isTxProcessing ? '—' :
+                escrow.status === 'COMPLETED' || escrow.resolution.verdict === 'PAYOUT' ? '0%' :
+                escrow.status === 'REFUNDED' || escrow.resolution.verdict === 'REFUND' ? '100%' :
+                escrow.resolution.verdict === 'SPLIT' ? `${100 - escrow.resolution.provider_percent}%` :
+                '—'}
+            </span>
+          </div>
+          {/* Provider Payout */}
+          <div className="text-center">
+            <span className="text-slate-500 text-[8px] uppercase tracking-wider block mb-1">Provider Payout</span>
+            <span className="font-bold text-sm text-slate-200">
+              {isTxProcessing ? '—' :
+                escrow.status === 'COMPLETED' || escrow.resolution.verdict === 'PAYOUT' ? '100%' :
+                escrow.status === 'REFUNDED' || escrow.resolution.verdict === 'REFUND' ? '0%' :
+                escrow.resolution.verdict === 'SPLIT' ? `${escrow.resolution.provider_percent}%` :
+                '—'}
+            </span>
+          </div>
+        </div>
+        {/* Verdict line */}
+        {escrow.resolution.verdict && (
+          <div className="mt-3 pt-3 border-t border-slate-800/80 text-center">
+            <span className="text-slate-500 text-[8px] uppercase tracking-wider">Verdict: </span>
+            <span className={`font-bold text-[11px] uppercase tracking-wider ${
+              escrow.resolution.verdict === 'PAYOUT' ? 'text-emerald-400' :
+              escrow.resolution.verdict === 'REFUND' ? 'text-red-400' :
+              escrow.resolution.verdict === 'SPLIT' ? 'text-amber-400' :
+              'text-slate-400'
+            }`}>
+              {escrow.resolution.verdict}
+            </span>
+          </div>
+        )}
       </div>
 
       {/* Case Resolution Output Panel */}
