@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Shield, ShieldAlert, Award, FileText, Send, User, ChevronRight, HelpCircle, Loader2 } from 'lucide-react';
+import { Shield, ShieldAlert, Award, FileText, Send, User, ChevronRight, HelpCircle, Loader2, Clock } from 'lucide-react';
 import { Escrow, EscrowStatus, Verdict } from '@/lib/contract';
 import { getRoleForEscrow, getVerdictStyle, shortAddress, STATUS_STYLES } from '@/lib/format';
 import { CourtScale } from './CourtScale';
@@ -346,7 +346,7 @@ export function CourtChamber({
 
             {/* Render Context Forms inside Workspace */}
             {activeForm === 'submit' && (
-              <form onSubmit={(e) => handleFormSubmit(e, 'submit')} className="mt-4 p-4 border border-slate-800 bg-[#07080a] rounded space-y-3">
+              <form onSubmit={(e) => handleActionSubmit(e, 'submit')} className="mt-4 p-4 border border-slate-800 bg-[#07080a] rounded space-y-3">
                 <h5 className="font-bold text-blue-400 uppercase tracking-wide text-[10px]">Submit Work Deliverables</h5>
                 <textarea
                   required
@@ -375,7 +375,7 @@ export function CourtChamber({
             )}
 
             {activeForm === 'dispute' && (
-              <form onSubmit={(e) => handleFormSubmit(e, 'dispute')} className="mt-4 p-4 border border-slate-800 bg-[#07080a] rounded space-y-3">
+              <form onSubmit={(e) => handleActionSubmit(e, 'dispute')} className="mt-4 p-4 border border-slate-800 bg-[#07080a] rounded space-y-3">
                 <h5 className="font-bold text-red-400 uppercase tracking-wide text-[10px]">File Formal Dispute Claim</h5>
                 <textarea
                   required
@@ -404,7 +404,7 @@ export function CourtChamber({
             )}
 
             {activeForm === 'evidence' && (
-              <form onSubmit={(e) => handleFormSubmit(e, 'evidence')} className="mt-4 p-4 border border-slate-800 bg-[#07080a] rounded space-y-3">
+              <form onSubmit={(e) => handleActionSubmit(e, 'evidence')} className="mt-4 p-4 border border-slate-800 bg-[#07080a] rounded space-y-3">
                 <h5 className="font-bold text-amber-500 uppercase tracking-wide text-[10px]">Submit Case Evidence</h5>
                 <textarea
                   required
