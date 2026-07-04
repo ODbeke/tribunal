@@ -8,7 +8,7 @@ The dispute evaluation runs entirely inside a **GenLayer Intelligent Contract**,
 
 ## Deployed References & Links
 
-* **Live Frontend App:** [https://tribunal-six.vercel.app](https://tribunal-six.vercel.app)
+* **Live Frontend App:** [https://tribunal-seven.vercel.app/](https://tribunal-seven.vercel.app/)
 * **Intelligent Contract Address:** [`0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0`](https://explorer-bradbury.genlayer.com/address/0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0)
 
 ---
