@@ -8,9 +8,9 @@ Two parties (a Client and a Provider) can lock funds in escrow under a plain-tex
 
 ## 🔗 Deployed References & Links
 
-*   🚀 **Live Frontend Application:** [https://tribunal-seven.vercel.app/](https://tribunal-seven.vercel.app/)
-*   📜 **Intelligent Contract Address:** [`0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0`](https://explorer-bradbury.genlayer.com/address/0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0)
-*   🌐 **GenLayer Bradbury Explorer:** [Explorer Transaction Search](https://explorer-bradbury.genlayer.com)
+*    **Live Frontend Application:** [https://tribunal-seven.vercel.app/](https://tribunal-seven.vercel.app/)
+*    **Intelligent Contract Address:** [`0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0`](https://explorer-bradbury.genlayer.com/address/0x7D412D77f1f7d9f94279663172F69f83A1D60Ee0)
+*    **GenLayer Bradbury Explorer:** [Explorer](https://explorer-bradbury.genlayer.com)
 
 ---
 
